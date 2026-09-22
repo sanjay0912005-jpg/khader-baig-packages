@@ -1,0 +1,92 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile for authenticated jewellers and retail clients.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "lastLoginAt": { "type": "string" }
+      },
+      "required": ["uid"]
+    },
+    "Enquiry": {
+      "title": "Enquiry",
+      "description": "Wholesale jewellery packaging trade quotation and sample kit inquiry submitted by a jewellery retail store or wholesaler.",
+      "type": "object",
+      "properties": {
+        "companyName": {
+          "type": "string",
+          "description": "Name of the jewellery store, showroom, or business",
+          "maxLength": 150
+        },
+        "contactPerson": {
+          "type": "string",
+          "description": "Name of the key proprietor or store manager",
+          "maxLength": 100
+        },
+        "phone": {
+          "type": "string",
+          "description": "Direct contact phone or WhatsApp number",
+          "maxLength": 30
+        },
+        "email": {
+          "type": "string",
+          "description": "Optional email address",
+          "maxLength": 100
+        },
+        "city": {
+          "type": "string",
+          "description": "City and state of operation",
+          "maxLength": 100
+        },
+        "productCategory": {
+          "type": "string",
+          "description": "Target packaging item category (e.g. Boxes, Zip Pouches, Trays, Neck Busts)",
+          "maxLength": 100
+        },
+        "estimatedQuantity": {
+          "type": "string",
+          "description": "Order volume bracket (e.g. 500 - 1,000 pcs, 2,000+ pcs)",
+          "maxLength": 100
+        },
+        "customBranding": {
+          "type": "string",
+          "description": "Custom logo foil stamping requirements",
+          "maxLength": 100
+        },
+        "notes": {
+          "type": "string",
+          "description": "Custom dimensions, fabric preferences, or special notes",
+          "maxLength": 1000
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the enquiry: new, contacted, quote_sent, sample_dispatched, completed",
+          "enum": ["new", "contacted", "quote_sent", "sample_dispatched", "completed"]
+        },
+        "source": {
+          "type": "string",
+          "description": "Form origin (contact_form, catalogue_modal, quick_inquiry)",
+          "maxLength": 50
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp when submitted",
+          "maxLength": 50
+        }
+      },
+      "required": ["companyName", "contactPerson", "phone"]
+    }
+  },
+  "firestore": {
+    "/enquiries/{enquiryId}": {
+      "schema": "Enquiry",
+      "description": "Collection of all incoming B2B jewellery packaging inquiries and sample dispatch requests."
+    }
+  }
+}

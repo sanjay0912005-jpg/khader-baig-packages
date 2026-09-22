@@ -1,0 +1,6 @@
+{
+  "name": "Khader Baig Packages",
+  "description": "KHADER BAIG PACKAGES - Luxury jewellery packaging, fancy velvet pouches, display trays, and neck stands for jewellery retailers and showrooms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
